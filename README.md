@@ -1,65 +1,151 @@
 ```markdown
-# [Candidate Name]
-[Phone Number] | [Email Address] | [LinkedIn Profile URL] | [Location]
+<style>
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+}
 
-## Summary
+h1, h2, h3 {
+    color: #333;
+}
 
-Highly analytical and results-oriented professional with 8+ years of experience in financial services, specializing in asset allocation and derivatives trading. Proven ability to leverage data analysis, Excel modeling, and strategic communication to drive portfolio performance and mitigate risk. Seeking to apply expertise in a challenging Associate role at McKinsey & Company, contributing to impactful projects in AI transformation, M&A, and operational improvements.
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
 
-## Experience
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
 
-**Fidelity Investments, Boston, MA** | **Asset Allocation Analyst** | 2016 – 2023
+th {
+    background-color: #f2f2f2;
+}
 
-*   Led investment research and data analysis for assets totaling $2B in US municipal fixed income, improving portfolio performance by 15% through optimized asset allocation strategies.
-*   Developed and maintained Excel models for portfolio optimization, risk management, and performance attribution.
-*   Presented research findings and investment recommendations to senior management, influencing portfolio decisions and driving strategic initiatives.
-*   Collaborated with cross-functional teams to develop and implement new investment strategies, enhancing portfolio diversification and risk-adjusted returns.
-*   Utilized data analysis techniques to identify market trends and investment opportunities, generating alpha and improving portfolio performance.
-*   Managed multiple projects simultaneously, prioritizing tasks and meeting deadlines in a complex and dynamic environment.
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
 
-**Futures First, Bangalore, India** | **Derivatives Trader** | 2015 – 2016
+.executive-summary {
+    background-color: #e6f7ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
 
-*   Managed a portfolio of Futures and Options on German government bonds (Bunds, Bobl, Schatz) and Euribor futures, utilizing algorithmic trading tools to enhance profitability and mitigate risk.
-*   Developed and implemented trading strategies based on market analysis, technical indicators, and economic data.
-*   Monitored market conditions and adjusted trading strategies to adapt to changing market dynamics.
-*   Collaborated with risk management team to ensure compliance with regulatory requirements and internal risk controls.
-*   Successfully navigated volatile market conditions to maintain portfolio performance.
+.improvement-areas {
+    background-color: #ffe6e6;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
 
-## Education
+.action-items {
+    background-color: #e6ffe6;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+details {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+}
 
-**[University Name], [City, State]** | **PhD, Business Administration (Finance Focus)** | 2011 – 2015
+summary {
+    cursor: pointer;
+    padding: 5px;
+    font-weight: bold;
+}
+</style>
 
-*   Dissertation: [Dissertation Title]
-*   Relevant Coursework: Econometrics, Financial Modeling, Investment Management, Corporate Finance
+## Executive Summary 🚀
 
-**[University Name], [City, State]** | **MBA, Finance** | 2009 – 2011
+<div class="executive-summary">
+Overall, your profile shows promise for the Associate role at McKinsey & Company. Quick wins involve tailoring your resume to highlight rational decision-making, data analysis, and strategic thinking skills.
 
-**[University Name], [City, State]** | **[Bachelor's Degree], [Major]** | 2005 – 2009
+### Key Strengths 💪
+*   Strong academic background from reputable institutions (Harvard, Columbia, IIT).
+*   Experience in investment research and trading.
+*   Demonstrated research capabilities and engagement with the academic community.
 
-## Skills
+### Improvement Areas ⚠️
+*   Quantify achievements to demonstrate impact.
+*   Explicitly connect research interests to business applications.
+*   Incorporate keywords from the job description (Consulting, Client Management, Business Strategy, Project Delivery).
+</div>
 
-*   **Technical Skills:** Data Analysis, Excel Modeling, PowerPoint, Stata, Python, LaTeX, Algorithmic Trading
-*   **Soft Skills:** Communication, Organization, Time Management, Adaptability, Resilience, Leadership, Teamwork, Problem-Solving
+<div class="action-items">
+### Action Items Priority List ✅
+1.  **Resume Optimization:** Tailor resume to highlight rational decision-making, data analysis, and strategic thinking skills.
+2.  **Quantify Achievements:** Add specific metrics or results achieved in previous roles.
+3.  **Skills Alignment:** Explicitly state how tools (Stata, Python, Latex) were used to solve analytical problems.
+</div>
 
-## Additional Information
+## Job Fit Analysis 🎯
 
-*   Presented research findings at international conferences, demonstrating strong communication and presentation skills.
-*   Experience in financial services industry aligns with McKinsey's focus on the Financial Services sector.
-*   Knowledge of AI and digital transformation through academic research and professional experience.
-*   Experience working in international environments (India, US) demonstrates adaptability and cultural sensitivity.
+<details>
+<summary>Detailed Score Breakdown 📊</summary>
 
-## Documentation of Changes:
+To be determined once scoring is completed. A detailed score breakdown will be presented here, showing the match level for technical skills, soft skills, experience, education, and industry knowledge.
 
-*   **Summary:** Added quantifiable achievements and tailored to the Associate role at McKinsey.
-*   **Experience:**
-    *   Quantified achievements in Fidelity Investments role (improved portfolio performance by 15%).
-    *   Explicitly mentioned "data analysis" and "Excel models" in the Fidelity Investments description.
-    *   Framed Futures First role in terms of portfolio management and risk mitigation, mentioning algorithmic trading tools.
-    *   Added a bullet point about navigating volatile market conditions to imply resilience.
-    *   Included a bullet point to show managing multiple projects simultaneously, prioritizing tasks, and meeting deadlines in the descriptions of the roles to highlight organizational skills.
-*   **Education:** Added "(Finance Focus)" to the PhD description.
-*   **Skills:** Added "Data Analysis", "Excel Modeling", and "PowerPoint" to the Skills section. Added the soft skills recommended from the job description.
-*   **Additional Information:** Included industry knowledge aligning with McKinsey's focus areas (AI, digital transformation, Financial Services). Included international experience to demonstrate adaptability.
-*   **ATS Optimization:** Used a clean, ATS-friendly format with clear section headers and bullet points.
+</details>
 
+### Skills Match Assessment 技能匹配评估
+The job requires proficiency in rational decision-making based on data and the ability to create work product-focused materials. Your resume should clearly demonstrate these skills through quantifiable achievements and relevant experiences.
+
+### Experience Alignment 经验对齐
+Your experience at Fidelity Investments and Futures First Info. Services provides a foundation. However, the descriptions need to be more impact-focused and aligned with consulting skills. Quantify your achievements to showcase the value you brought to these roles.
+
+## Optimization Overview ✨
+
+### Key Resume Improvements 简历改进要点
+*   Quantify achievements in Fidelity Investments experience, highlighting impact on portfolio performance or risk management.
+*   Elaborate on the algorithmic trading tools developed at Futures First Info. Services, emphasizing their functionality and impact on trading efficiency.
+*   Connect research findings to practical business implications.
+
+### ATS Optimization Results ATS优化结果
+*   Use standard resume formatting (e.g., avoid tables or complex formatting that can confuse ATS systems).
+*   Use keywords from the job description throughout the resume, especially in the skills and experience sections.
+*   Ensure all abbreviations and acronyms are spelled out at least once.
+
+### Impact Metrics 影响指标
+By implementing the suggested changes, the resume's relevance to the McKinsey Associate role can be significantly improved, increasing the likelihood of passing through ATS screening and attracting recruiter attention.
+
+## Company Insights 🏢
+
+### Culture Fit Analysis 文化契合度分析
+McKinsey values professional standards, client performance improvement, and an unrivaled environment for exceptional people. Highlight experiences that demonstrate these values, such as teamwork, problem-solving, and commitment to excellence.
+
+### Interview Preparation Tips 面试准备技巧
+*   Prepare for case-based questions involving a problem statement.
+*   Practice behavioral questions related to personal experiences.
+*   Research McKinsey's values, recent projects, and industry trends.
+
+### Key Talking Points 关键谈话要点
+*   McKinsey's focus on AI-driven venture building and digital transformation initiatives.
+*   The firm's commitment to sustainability projects and M&A strategy.
+*   Opportunities for operations productivity enhancements through technology.
+
+## Next Steps ➡️
+
+### Prioritized Action Items 优先级行动项
+1.  **Resume Revision:** Incorporate feedback on resume sections to align with the job description and McKinsey's values.
+2.  **Skills Development:** Focus on developing skills in areas where there are gaps, such as client management and project delivery.
+3.  **Networking:** Connect with current or former McKinsey employees to learn more about the company and the role.
+
+### Skill Development Plan 技能发展计划
+*   Take online courses or workshops to improve skills in consulting, client management, and project delivery.
+*   Participate in case study competitions to develop problem-solving skills.
+*   Seek opportunities to work on projects that involve strategic thinking and data analysis.
+
+### Application Strategy 应用策略
+*   Tailor your cover letter to highlight your relevant skills and experiences.
+*   Submit your application early to increase your chances of being considered.
+*   Follow up with the recruiter to express your interest in the role.
 ```
