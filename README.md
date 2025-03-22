@@ -16,7 +16,7 @@ An AI-powered tool that optimizes your resume for specific job applications usin
 1. Clone the repository and install dependencies:
 
     ```bash
-    git clone https://github.com/tonykipkemboi/resume-optimization-crew.git
+    git clone https://github.com/naveenkrishnan840/resume-optimization-crewai.git
     cd resume-optimization-crew
     ```
 
@@ -36,7 +36,7 @@ An AI-powered tool that optimizes your resume for specific job applications usin
 
 2. Add your API keys to `.env`:
     - Required:
-        - `OPENAI_API_KEY`: OpenAI API key
+        - `GOOGLE_API_KEY`: OpenAI API key
         - `SERPER_API_KEY`: Serper API key for web search
     - Optional:
         - See `.env.example` for additional optional APIs
