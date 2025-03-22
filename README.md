@@ -1,4 +1,4 @@
-```
+```markdown
 ## Executive Summary
 
 🚀 Overall Match Score: 89.06%
