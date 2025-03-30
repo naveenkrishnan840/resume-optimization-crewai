@@ -32,7 +32,7 @@ def processing_input_to_crewai(request: Request, resume_data_request: ResumeData
         resume_data = resume_data_request.resumeData
         job_url = resume_data_request.jobUrl
         company_name = resume_data_request.companyName
-        if validators.url(job_url):
+        if not validators.url(job_url):
             return HTTPException(detail="url invalid", status_code=200)
         os.makedirs("knowledge", exist_ok=True)
         with open("knowledge/input_pdf.pdf", "wb") as file:
