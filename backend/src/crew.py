@@ -5,7 +5,7 @@ from crewai_tools import SerperDevTool, ScrapeWebsiteTool
 from crewai.project import crew, task, agent, CrewBase
 from crewai.knowledge.source.pdf_knowledge_source import PDFKnowledgeSource
 
-from backend.src.models.models import CompanyResearch, JobRequirements, ResumeOptimization
+from src.models.models import CompanyResearch, JobRequirements, ResumeOptimization
 
 
 @CrewBase

@@ -1,6 +1,6 @@
 # Resume Optimization with CrewAI
 
-![Resume Optimization System Architecture](docs/architecture-diagam.svg)
+![Resume Optimization System Architecture](backend/docs/architecture-diagam.svg)
 
 An AI-powered tool that optimizes your resume for specific job applications using multiple AI agents. Built with [CrewAI](https://crewai.com).
 
@@ -11,12 +11,47 @@ An AI-powered tool that optimizes your resume for specific job applications usin
 3. **Optimization**: Suggests specific improvements to increase your match score
 4. **Company Research**: Provides company insights for interview preparation
 
+## System Components
+
+### 1. Input Sources
+
+- Resume (PDF format)
+- Job URL
+- Company Name
+
+### 2. Analysis Agents
+
+- **Job Analyzer**: Uses ScrapeWebsiteTool to analyze job descriptions
+- **Resume Analyzer**: Uses PDFKnowledgeSource to analyze resumes
+- **Company Researcher**: Uses SerperDevTool for company research
+
+### 3. Structured Data
+
+JSON files storing analysis results:
+
+- job_analysis.json
+- resume_optimization.json
+- company_research.json
+
+### 4. Report Generators
+
+- **Resume Writer**: Creates optimized resumes
+- **Report Generator**: Creates comprehensive reports
+
+### 5. Output Files
+
+Markdown files:
+
+- optimized_resume.md
+- final_report.md
+
+
 ## Installation
 
 1. Clone the repository and install dependencies:
 
     ```bash
-    git clone https://github.com/tonykipkemboi/resume-optimization-crew.git
+    git clone https://github.com/naveenkrishnan840/resume-optimization-crewai.git
     cd resume-optimization-crew
     ```
 
@@ -36,7 +71,7 @@ An AI-powered tool that optimizes your resume for specific job applications usin
 
 2. Add your API keys to `.env`:
     - Required:
-        - `OPENAI_API_KEY`: OpenAI API key
+        - `GOOGLE_API_KEY`: OpenAI API key
         - `SERPER_API_KEY`: Serper API key for web search
     - Optional:
         - See `.env.example` for additional optional APIs
