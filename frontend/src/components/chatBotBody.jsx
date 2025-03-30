@@ -78,7 +78,7 @@ export default function ChatBotBody () {
         const file = values.resumeData;
         if(file){
             const reader = new FileReader();
-            reader.onloadend = () => {
+            reader.onload = () => {
                 setResumeData(reader.result)
             }
             reader.readAsDataURL(file)
