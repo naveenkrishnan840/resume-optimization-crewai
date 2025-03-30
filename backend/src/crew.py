@@ -36,7 +36,7 @@ class ResumeCrew:
     @agent
     def job_analyzer(self) -> Agent:
         job_analyzer_agent = Agent(config=self.agents_config["job_analyzer"], verbose=True,
-                                   llm=LLM(os.getenv("DEEPSEEK_MODEL"), api_key=os.getenv("GROQ_API_KEY")),
+                                   llm=LLM(os.getenv("GOOGLE_MODEL"), api_key=os.getenv("GOOGLE_API_KEY")),
                                    tools=[ScrapeWebsiteTool()])
         return job_analyzer_agent
 
@@ -54,7 +54,8 @@ class ResumeCrew:
     @agent
     def resume_writer(self) -> Agent:
         resume_writer_agent = Agent(config=self.agents_config["resume_writer"], verbose=True,
-                                    llm=LLM(os.getenv("GOOGLE_MODEL"), api_key=os.getenv("GOOGLE_API_KEY")))
+                                    llm=LLM(os.getenv("GOOGLE_MODEL"), api_key=os.getenv("GOOGLE_API_KEY"),
+                                            base_url=os.getenv("API_BASE")))
         return resume_writer_agent
 
     @agent
@@ -66,7 +67,7 @@ class ResumeCrew:
     @agent
     def pdf_generator(self) -> Agent:
         pdf_generator_agent = Agent(config=self.agents_config["pdf_generator"], verbose=True,
-                                    llm=LLM(os.getenv("LLAMA_MODEL"), api_key=os.getenv("GROQ_API_KEY")))
+                                    llm=LLM(os.getenv("GOOGLE_MODEL"), api_key=os.getenv("GOOGLE_API_KEY")))
         return pdf_generator_agent
 
     @task

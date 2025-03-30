@@ -136,45 +136,37 @@ generate_report_task:
   description: >
     Create an executive summary report using data from previous steps. 
     Format in markdown without code blocks '```'.
-
     1. Data Integration:
        - Job analysis and scores
        - Resume optimization details
        - Company research insights
        - Final resume changes
-
     2. Report Sections:
        ## Executive Summary
        - Overall match score and quick wins
        - Key strengths and improvement areas
        - Action items priority list
-
        ## Job Fit Analysis
        - Detailed score breakdown
        - Skills match assessment
        - Experience alignment
-
        ## Optimization Overview
        - Key resume improvements
        - ATS optimization results
        - Impact metrics
-
        ## Company Insights
        - Culture fit analysis
        - Interview preparation tips
        - Key talking points
-
        ## Next Steps
        - Prioritized action items
        - Skill development plan
        - Application strategy
-
     3. Formatting:
        - Use proper markdown headers
        - Include relevant emojis
        - Create tables where appropriate
        - Use bullet points for scannability
-
   expected_output: >
     A comprehensive markdown report that combines all analyses into an
     actionable, clear document with concrete next steps.
@@ -186,39 +178,32 @@ generate_pdf_task:
     Generate a **professionally formatted PDF report** as HTML format that presents a structured analysis 
         of the job application process. The report should be **visually appealing**, 
         easy to navigate, and optimized for executive review.
-
         ### **1. Data Integration**
            - Incorporate job analysis and scores
            - Resume optimization details and ATS compliance
            - Company research insights for tailored recommendations
            - Final resume changes and their impact
-
         ### **2. Report Structure (PDF)**
            ### **Executive Summary** 📌
            - Overall match score with key recommendations
            - Quick wins and areas for improvement
            - Action items prioritized for impact
-
            ### **Job Fit Analysis** 📊
            - Detailed breakdown of match score
            - Skills alignment with job requirements
            - Experience evaluation and gaps
-
            ### **Optimization Overview** ✅
            - Resume improvements and ATS analysis
            - Formatting adjustments for readability
            - Key metrics on enhancement effectiveness
-
            ### **Company Insights** 🏢
            - Culture fit analysis with tailored strategies
            - Key talking points for interviews
            - Recommended preparation resources
-
            ### **Next Steps & Strategy** 🎯
            - Prioritized action items and execution plan
            - Skill development roadmap
            - Application strategy for better results
-
         ### **3. PDF Formatting Guidelines**
            - Convert Markdown to a **structured PDF** using embedded **HTML & CSS**.
            - Use **custom headers, footers, and sections** for professional layout.
@@ -226,7 +211,6 @@ generate_pdf_task:
            - Include **page numbers, clickable links, and a table of contents**.
            - Add **charts and visual elements** for data-driven insights.
            - Ensure the document is **mobile-friendly and print-ready**.
-
   expected_output: >
     A professionally formatted PDF report combining all analyses into a 
     structured, visually enhanced document with concrete next steps.

@@ -223,18 +223,18 @@ export default function ChatBotBody () {
                         children={resFinalMd}
                         remarkPlugins={[remarkGfm]}
                         rehypePlugins={[rehypeRaw]}
-                        components={{
-                        code({ node, inline, className, children, ...props }) {
-                            const match = /language-(\w+)/.exec(className || "");
-                            return match ? (
-                            <SyntaxHighlighter style={dracula} language={match[1]} PreTag="div" {...props}>
-                                {String(children).replace(/\n$/, "")}
-                            </SyntaxHighlighter>
-                            ) : (
-                            <code className="bg-gray-700 px-1 py-0.5 rounded text-sm">{children}</code>
-                            );
-                        },
-                        }}
+                        // components={{
+                        // code({ node, inline, className, children, ...props }) {
+                        //     const match = /language-(\w+)/.exec(className || "");
+                        //     return match ? (
+                        //     <SyntaxHighlighter style={dracula} language={match[1]} PreTag="div" {...props}>
+                        //         {String(children).replace(/\n$/, "")}
+                        //     </SyntaxHighlighter>
+                        //     ) : (
+                        //     <code className="bg-gray-700 px-1 py-0.5 rounded text-sm">{children}</code>
+                        //     );
+                        // },
+                        // }}
                     />
                     </div>
 
