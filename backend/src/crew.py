@@ -19,7 +19,7 @@ class ResumeCrew:
                                              embedder={"provider": "google",
                                                        "config": {
                                                            "model": "models/text-embedding-004",
-                                                           "api_key": os.getenv("GOOGLE_API_KEY")}
+                                                           "api_key": "AIzaSyDE5Dj_vpdBAYfzit1oJo_KgA4sy5Ikdn4"}
                                                        })
 
     @agent
@@ -29,14 +29,14 @@ class ResumeCrew:
                                       knowledge_sources=[self.resume_pdf],
                                       embedder={"provider": "google", "config": {
                                         "model": "models/text-embedding-004",
-                                        "api_key": os.getenv("GOOGLE_API_KEY")}
+                                        "api_key": "AIzaSyDE5Dj_vpdBAYfzit1oJo_KgA4sy5Ikdn4"}
                                               })
         return resume_analyzer_agent
 
     @agent
     def job_analyzer(self) -> Agent:
         job_analyzer_agent = Agent(config=self.agents_config["job_analyzer"], verbose=True,
-                                   llm=LLM(os.getenv("GOOGLE_MODEL"), api_key=os.getenv("GOOGLE_API_KEY")),
+                                   llm=LLM(os.getenv("GOOGLE_MODEL"), api_key="AIzaSyDE5Dj_vpdBAYfzit1oJo_KgA4sy5Ikdn4"),
                                    tools=[ScrapeWebsiteTool()])
         return job_analyzer_agent
 
@@ -47,26 +47,26 @@ class ResumeCrew:
                                          tools=[SerperDevTool()], knowledge_sources=[self.resume_pdf],
                                          embedder={"provider": "google", "config":
                                                 {"model": "models/text-embedding-004",
-                                                 "api_key": os.getenv("GOOGLE_API_KEY"),
+                                                 "api_key": "AIzaSyDE5Dj_vpdBAYfzit1oJo_KgA4sy5Ikdn4",
                                                  }})
         return company_researcher_agent
 
     @agent
     def resume_writer(self) -> Agent:
         resume_writer_agent = Agent(config=self.agents_config["resume_writer"], verbose=True,
-                                    llm=LLM(os.getenv("GOOGLE_MODEL"), api_key=os.getenv("GOOGLE_API_KEY")))
+                                    llm=LLM(os.getenv("GOOGLE_MODEL"), api_key="AIzaSyDE5Dj_vpdBAYfzit1oJo_KgA4sy5Ikdn4"))
         return resume_writer_agent
 
     @agent
     def report_generator(self) -> Agent:
         report_generator_agent = Agent(config=self.agents_config["report_generator"], verbose=True,
-                                       llm=LLM(os.getenv("GOOGLE_MODEL"), api_key=os.getenv("GOOGLE_API_KEY")))
+                                       llm=LLM(os.getenv("GOOGLE_MODEL"), api_key="AIzaSyDE5Dj_vpdBAYfzit1oJo_KgA4sy5Ikdn4"))
         return report_generator_agent
 
     @agent
     def pdf_generator(self) -> Agent:
         pdf_generator_agent = Agent(config=self.agents_config["pdf_generator"], verbose=True,
-                                    llm=LLM(os.getenv("GOOGLE_MODEL"), api_key=os.getenv("GOOGLE_API_KEY")))
+                                    llm=LLM(os.getenv("GOOGLE_MODEL"), api_key="AIzaSyDE5Dj_vpdBAYfzit1oJo_KgA4sy5Ikdn4"))
         return pdf_generator_agent
 
     @task
