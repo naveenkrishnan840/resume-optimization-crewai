@@ -45,6 +45,42 @@ Markdown files:
 - optimized_resume.md
 - final_report.md
 
+## Architecture 
+```
+🚀 Crew: Resume Optimization
+├── 📋 Task: 81123e97-3c4d-4070-8481-2b5faf068fc6
+│      Assigned to: Job Requirements Analyst
+│      Status: ✅ Completed
+│   └── 🤖 Agent: Job Requirements Analyst
+│           Status: ✅ Completed
+│       └── 🔧 Used Read website content (1)
+├── 📋 Task: b9e31aed-4749-4f78-9a30-ab4df0f5e3f9
+│      Assigned to: Resume Optimization Expert
+│      Status: ✅ Completed
+│   └── 🤖 Agent: Resume Optimization Expert
+│           Status: ✅ Completed
+├── 📋 Task: 18a5378e-abb4-4bc3-a8cb-715555dcc4d3
+│      Assigned to: Company Intelligence Specialist
+│      Status: ✅ Completed
+│   └── 🤖 Agent: Company Intelligence Specialist
+│           Status: ✅ Completed
+│       └── 🔧 Used Search the internet with Serper
+├── 📋 Task: 0a173a87-7877-4823-a164-928fd4d2e060
+│      Assigned to: Resume Markdown Specialist
+│      Status: ✅ Completed
+│   └── 🤖 Agent: Resume Markdown Specialist
+│           Status: ✅ Completed
+├── 📋 Task: d2181ec2-6882-4761-99ca-76e168371000
+│      Assigned to: Career Report Generator and Markdown Specialist
+│      Status: ✅ Completed
+│   └── 🤖 Agent: Career Report Generator and Markdown Specialist
+│           Status: ✅ Completed
+└── 📋 Task: 6a8598ec-d30b-4770-9ed5-4cc772847425
+       Assigned to: Career Report Generator and PDF Formatting Specialist
+       Status: ✅ Completed
+    └── 🤖 Agent: Career Report Generator and PDF Formatting Specialist
+            Status: ✅ Completed
+```
 
 ## Installation
 
