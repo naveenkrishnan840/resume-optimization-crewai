@@ -34,24 +34,52 @@ const formValidationSchema = yup.object().shape({
 });
 
 export default function ChatBotBody () {
-    const [resumeData, setResumeData] = useState("");
+    // const [resumeData, setResumeData] = useState("");
     const [jobUrl, setJobUrl] = useState("");
     const [companyName, setCompanyName] = useState("");
     const [isDisabled, setIsDisabled] = useState(false);
     const [isError, setIsError] = useState(false);
     const [rescompleted, setRescompleted] = useState(false);
     const[open, setOpen] = useState(true);
-    const heightRef = useRef(null);
     const [resFinalMd, setResFinalMd] = useState("");
     const [resRefindMd, setResRefindMd] = useState("");
     const [resPdf, setResPdf] = useState("");
     const [urlInvalid, setUrlInvalid] = useState(false);
     const [isDataSend, setIsDataSend] = useState(false);
+    const [fileName, setFileName] = useState("");
 
-    useEffect(()=>{
-        if (isDataSend == true) {
-            setUrlInvalid(false)
-            const data = {"resumeData": resumeData, "jobUrl": jobUrl, "companyName": companyName};
+    // useEffect(()=>{
+    //     if (isDataSend == true) {
+    //         setUrlInvalid(false)
+    //         const data = {"resumeData": resumeData, "jobUrl": jobUrl, "companyName": companyName};
+    //         setIsDisabled(true);
+    //         const response = RequestService("/processingCrewAI", data);
+    //         response.then((response) => {
+    //             if (typeof response.detail == "string") {
+    //                 setUrlInvalid(true);
+    //                 setOpen(true);
+    //             } else if(response.detail) {
+    //                 setResFinalMd(response["detail"]["final_report_data"])
+    //                 setResRefindMd(response["detail"]["refined_resume_data"])
+    //                 setResPdf(response["detail"]["pdf_data"]);
+    //                 setJobUrl("");
+    //                 setResumeData("");
+    //                 setCompanyName("");
+    //                 setRescompleted(true);
+    //                 setOpen(true);
+    //             }
+    //             setIsDisabled(false);
+    //             setIsDataSend(false);
+    //         });
+    //     }
+    // }, [isDataSend]);
+
+    const onSubmitForm = async (values) => {
+            setUrlInvalid(false);
+            setJobUrl(values.jobUrl);
+            setCompanyName(values.campanyName);
+            // setFileName(values.fileName);
+            const data = {"resumeData": values.resumeData, "jobUrl": values.jobUrl, "companyName": values.campanyName};
             setIsDisabled(true);
             const response = RequestService("/processingCrewAI", data);
             response.then((response) => {
@@ -59,33 +87,31 @@ export default function ChatBotBody () {
                     setUrlInvalid(true);
                     setOpen(true);
                 } else if(response.detail) {
-                    setResFinalMd(response["detail"]["final_report_data"])
-                    setResRefindMd(response["detail"]["refined_resume_data"])
+                    setResFinalMd(response["detail"]["final_report_data"]);
+                    setResRefindMd(response["detail"]["refined_resume_data"]);
                     setResPdf(response["detail"]["pdf_data"]);
                     setJobUrl("");
-                    setResumeData("");
+                    // setResumeData("");
                     setCompanyName("");
+                    setFileName("")
                     setRescompleted(true);
                     setOpen(true);
                 }
                 setIsDisabled(false);
                 setIsDataSend(false);
             });
-        }
-    }, [isDataSend]);
-
-    const onSubmitForm = async (values) => {
-        const file = values.resumeData;
-        if(file){
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setResumeData(reader.result)
-            }
-            reader.readAsDataURL(file)
-        }
-        setJobUrl(values.jobUrl)
-        setCompanyName(values.campanyName)
-        setIsDataSend(true);
+        // const file = values.resumeData;
+        // if(file){
+        //     const reader = new FileReader();
+        //     reader.onload = (e) => {
+        //         console.log("File Read Successfully:", e.target.result);
+        //         setResumeData(e.target.result);
+        //     }
+        //     reader.readAsDataURL(file)
+        // }
+        // setJobUrl(values.jobUrl)
+        // setCompanyName(values.campanyName)
+        // setIsDataSend(true);
       };
 
     return (
@@ -108,7 +134,7 @@ export default function ChatBotBody () {
                 <Formik
                     validateOnBlur={false}
                     validateOnChange={false}
-                        initialValues={{resumeData: null, campanyName: "", jobUrl: ""}}
+                        initialValues={{fileName: "", resumeData: null, campanyName: "", jobUrl: ""}}
                         onSubmit={async (values, { resetForm }) => {
                             onSubmitForm(values)
                             setRescompleted(false);
@@ -131,10 +157,19 @@ export default function ChatBotBody () {
                                                             <p class="mb-2 text-sm text-blue-800 dark:text-blue-800"><span class="font-semibold">Click to upload the Resume</span> or drag and drop</p>
                                                             <p class="text-xs text-blue-800 dark:text-blue-800">PDF Extension Only</p>
                                                         </div>
-                                                        <input {...field} id="dropzone-file" type="file" class="hidden" disabled={isDisabled} onChange={(event)=>{
-                                                            setFieldValue("resumeData", event.currentTarget.files[0])
+                                                        <input {...field} accept=".pdf" id="dropzone-file" type="file" class="hidden" disabled={isDisabled} onChange={(event)=>{
+                                                            // setFieldValue("resumeData", event.currentTarget.files[0])
+                                                                const file = event.target.files[0];
+                                                                setFileName(file.name);
+                                                                  if (file) {
+                                                                    const reader = new FileReader();
+                                                                    reader.onload = (e) => {
+                                                                      setFieldValue("resumeData", e.target.result);
+                                                                    };
+                                                                    reader.readAsDataURL(file);
+                                                                  }
                                                         }} />
-                                                        {values.resumeData && <p className="border p-2 rounded-md dark:text-gray-400">{values.resumeData.name}</p>}
+                                                        {fileName && <p className="border p-2 rounded-md dark:text-gray-400">{fileName}</p>}
                                                     </label>
                                                 </div>
                                                 {/* {errors.resumeData == null && <div>upload Resume Required</div>} */}
