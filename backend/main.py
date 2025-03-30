@@ -38,7 +38,8 @@ def processing_input_to_crewai(request: Request, resume_data_request: ResumeData
         with open("knowledge/input_pdf.pdf", "wb") as file:
             file.write(base64.b64decode(resume_data.split(",")[1]))
 
-        [os.remove(os.path.join("output", i)) for i in os.listdir("output")]
+        if os.path.exists("output"):
+            [os.remove(os.path.join("output", i)) for i in os.listdir("output")]
 
         crewai_task = ResumeCrew("input_pdf.pdf").crew()
         crewai_task.kickoff(inputs={"job_url": job_url, "company_name": company_name})
@@ -63,7 +64,7 @@ def processing_input_to_crewai(request: Request, resume_data_request: ResumeData
 
 app.include_router(router=api_router)
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app=app, host="127.0.0.1", port=8000)
+# if __name__ == "__main__":
+#     import uvicorn
+#     uvicorn.run(app=app, host="127.0.0.1", port=8006)
 
