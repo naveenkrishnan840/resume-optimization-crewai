@@ -46,21 +46,10 @@ export default function ChatBotBody () {
     const [resRefindMd, setResRefindMd] = useState("");
     const [resPdf, setResPdf] = useState("");
     const [urlInvalid, setUrlInvalid] = useState(false);
-
-
-    const updateHeight = () => {
-        if (heightRef.current) {
-            heightRef.current.scrollTop = heightRef.current.scrollHeight;
-        }
-    };
-
-      // Recalculate the height whenever messages change
-    // useEffect(() => {
-    //     updateHeight();
-    // });  
+    const [isDataSend, setIsDataSend] = useState(false);
 
     useEffect(()=>{
-        if (resumeData) {
+        if (isDataSend == true) {
             setUrlInvalid(false)
             const data = {"resumeData": resumeData, "jobUrl": jobUrl, "companyName": companyName};
             setIsDisabled(true);
@@ -68,6 +57,7 @@ export default function ChatBotBody () {
             response.then((response) => {
                 if (typeof response.detail == "string") {
                     setUrlInvalid(true);
+                    setOpen(true);
                 } else if(response.detail) {
                     setResFinalMd(response["detail"]["final_report_data"])
                     setResRefindMd(response["detail"]["refined_resume_data"])
@@ -76,11 +66,13 @@ export default function ChatBotBody () {
                     setResumeData("");
                     setCompanyName("");
                     setRescompleted(true);
+                    setOpen(true);
                 }
                 setIsDisabled(false);
+                setIsDataSend(false);
             });
         }
-    }, [resumeData]);
+    }, [isDataSend]);
 
     const onSubmitForm = async (values) => {
         const file = values.resumeData;
@@ -93,16 +85,17 @@ export default function ChatBotBody () {
         }
         setJobUrl(values.jobUrl)
         setCompanyName(values.campanyName)
+        setIsDataSend(true);
       };
 
     return (
         <>
-            {rescompleted == true && <Snackbar className="w-96" anchorOrigin={{ vertical: "top", horizontal: "center" }} open={open} autoHideDuration={1000} onClose={() => setOpen(false)}>
+            {rescompleted == true && <Snackbar className="w-96" anchorOrigin={{ vertical: "top", horizontal: "center" }} open={open} autoHideDuration={5000} onClose={() => setOpen(false)}>
                 <Alert onClose={() => setOpen(false)} severity="info"    style={{backgroundColor: "#151b23"}}>
                     Resume Report Gerneration Completed...
                 </Alert>
             </Snackbar>}
-            {urlInvalid == true && <Snackbar className="w-96" anchorOrigin={{ vertical: "top", horizontal: "center" }} open={open} autoHideDuration={1000} onClose={() => setOpen(false)}>
+            {urlInvalid == true && <Snackbar className="w-96" anchorOrigin={{ vertical: "top", horizontal: "center" }} open={open} autoHideDuration={5000} onClose={() => setOpen(false)}>
                 <Alert onClose={() => setOpen(false)} severity="error"  style={{backgroundColor: "#151b23"}}>
                     Job Url In Valid
                 </Alert>
