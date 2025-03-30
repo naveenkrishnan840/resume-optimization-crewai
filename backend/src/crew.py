@@ -54,8 +54,7 @@ class ResumeCrew:
     @agent
     def resume_writer(self) -> Agent:
         resume_writer_agent = Agent(config=self.agents_config["resume_writer"], verbose=True,
-                                    llm=LLM(os.getenv("GOOGLE_MODEL"), api_key=os.getenv("GOOGLE_API_KEY"),
-                                            base_url=os.getenv("API_BASE")))
+                                    llm=LLM(os.getenv("GOOGLE_MODEL"), api_key=os.getenv("GOOGLE_API_KEY")))
         return resume_writer_agent
 
     @agent
