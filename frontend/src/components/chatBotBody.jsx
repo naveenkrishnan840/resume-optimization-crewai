@@ -75,18 +75,39 @@ export default function ChatBotBody () {
     }, [isDataSend]);
 
     const onSubmitForm = async (values) => {
-        const file = values.resumeData;
-        if(file){
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                console.log("File Read Successfully:", e.target.result);
-                setResumeData(e.target.result);
-            }
-            reader.readAsDataURL(file)
-        }
-        setJobUrl(values.jobUrl)
-        setCompanyName(values.campanyName)
-        setIsDataSend(true);
+            setUrlInvalid(false)
+            const data = {"resumeData": values.resumeData, "jobUrl": values.jobUrl, "companyName": values.companyName};
+            setIsDisabled(true);
+            const response = RequestService("/processingCrewAI", data);
+            response.then((response) => {
+                if (typeof response.detail == "string") {
+                    setUrlInvalid(true);
+                    setOpen(true);
+                } else if(response.detail) {
+                    setResFinalMd(response["detail"]["final_report_data"])
+                    setResRefindMd(response["detail"]["refined_resume_data"])
+                    setResPdf(response["detail"]["pdf_data"]);
+                    setJobUrl("");
+                    setResumeData("");
+                    setCompanyName("");
+                    setRescompleted(true);
+                    setOpen(true);
+                }
+                setIsDisabled(false);
+                setIsDataSend(false);
+            });
+        // const file = values.resumeData;
+        // if(file){
+        //     const reader = new FileReader();
+        //     reader.onload = (e) => {
+        //         console.log("File Read Successfully:", e.target.result);
+        //         setResumeData(e.target.result);
+        //     }
+        //     reader.readAsDataURL(file)
+        // }
+        // setJobUrl(values.jobUrl)
+        // setCompanyName(values.campanyName)
+        // setIsDataSend(true);
       };
 
     return (
@@ -132,8 +153,16 @@ export default function ChatBotBody () {
                                                             <p class="mb-2 text-sm text-blue-800 dark:text-blue-800"><span class="font-semibold">Click to upload the Resume</span> or drag and drop</p>
                                                             <p class="text-xs text-blue-800 dark:text-blue-800">PDF Extension Only</p>
                                                         </div>
-                                                        <input {...field} id="dropzone-file" type="file" class="hidden" disabled={isDisabled} onChange={(event)=>{
-                                                            setFieldValue("resumeData", event.currentTarget.files[0])
+                                                        <input {...field} accept=".pdf,.doc,.docx" id="dropzone-file" type="file" class="hidden" disabled={isDisabled} onChange={(event)=>{
+                                                            // setFieldValue("resumeData", event.currentTarget.files[0])
+                                                                const file = event.target.files[0];
+                                                                  if (file) {
+                                                                    const reader = new FileReader();
+                                                                    reader.onload = (e) => {
+                                                                      setFieldValue("resumeData", e.target.result);
+                                                                    };
+                                                                    reader.readAsDataURL(file);
+                                                                  }
                                                         }} />
                                                         {values.resumeData && <p className="border p-2 rounded-md dark:text-gray-400">{values.resumeData.name}</p>}
                                                     </label>
